@@ -36,6 +36,12 @@
         appId: "39935939-ea04-466c-99ee-e40ee93c091c",
       });
 
+      OneSignal.isPushNotificationsEnabled(function(isEnabled) {
+        if (!isEnabled) {
+          OneSignal.showNativePrompt();
+        }
+      });
+
       OneSignal.on('notificationDisplay', function(event) {
         const messagesDiv = document.getElementById('push-messages');
         const newMsg = document.createElement('div');
