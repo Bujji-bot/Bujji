@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>OneSignal Test</title>
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <title>OneSignal Debug Test</title>
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
   <script>
     window.OneSignal = window.OneSignal || [];
-    OneSignal.push(function () {
+    OneSignal.push(function() {
+      OneSignal.SERVICE_WORKER_PATH = 'OneSignalSDKWorker.js';
+      OneSignal.SERVICE_WORKER_UPDATER_PATH = 'OneSignalSDKUpdaterWorker.js';
       OneSignal.init({
         appId: "39935939-ea04-466c-99ee-e40ee93c091c",
         notifyButton: {
-          enable: true,
+          enable: true
         },
+        allowLocalhostAsSecureOrigin: true,
+        welcomeNotification: {
+          disable: true
+        },
+        promptOptions: {
+          slidedown: {
+            enabled: true,
+            autoPrompt: true,
+          }
+        }
+      });
+
+      OneSignal.isPushNotificationsEnabled(function(isEnabled) {
+        console.log("Push Notifications Enabled: ", isEnabled);
+      });
+
+      OneSignal.on('subscriptionChange', function(isSubscribed) {
+        console.log("Subscription state changed:", isSubscribed);
       });
     });
   </script>
 </head>
 <body>
-  <h1>OneSignal Test Page</h1>
+  <h1>OneSignal Debug Test Page</h1>
+  <p>Open your browser console to see debug messages.</p>
 </body>
 </html>
