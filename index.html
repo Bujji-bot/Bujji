@@ -1,18 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Bujji Alerts</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    /* Fix for OneSignal notify button positioning */
-    #onesignal-bell-container {
-      position: fixed !important;
-      bottom: 20px !important;
-      right: 20px !important;
-      z-index: 99999 !important;
-    }
-  </style>
   <!-- OneSignal SDK -->
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
   <script>
@@ -21,15 +13,19 @@
       OneSignal.init({
         appId: "39935939-ea04-466c-99ee-e40ee93c091c",
         notifyButton: {
-          enable: true,
+          enable: false, // disable bell button
         },
       });
-      OneSignal.showSlidedownPrompt();
+
+      // Prompt user immediately on page load
+      OneSignal.showSlidedownPrompt().catch(function(e) {
+        console.log('Prompt error:', e);
+      });
     });
   </script>
 </head>
 <body>
   <h1>Welcome to Bujji Alerts 🚨</h1>
-  <p>Click the bell icon on the bottom right corner to subscribe to notifications.</p>
+  <p>If the browser supports, you will see a notification permission prompt now.</p>
 </body>
 </html>
