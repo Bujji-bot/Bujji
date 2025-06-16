@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bujji Trade Alerts</title>
+  <meta charset="UTF-8">
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+      OneSignal.init({
+        appId: "39935939-ea04-466c-99ee-e40ee93c091c",
+        notifyButton: {
+          enable: true,
+        },
+      });
+    });
+  </script>
+  <style>
+    body { font-family: Arial; padding: 20px; text-align: center; background-color: #f5f5f5; }
+    h1 { color: #2e7d32; }
+    .card {
+      background: white;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 16px;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .card p { font-size: 18px; margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>📈 Bujji Nifty Alerts</h1>
+  <div class="card">
+    <p><strong>Trade Entry:</strong> Buy Bank Nifty 48500 CE</p>
+    <p><strong>Stop Loss:</strong> 80</p>
+    <p><strong>Target:</strong> 140</p>
+  </div>
+  <p>🔔 Push alerts will appear here!</p>
+</body>
+</html>
