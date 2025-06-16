@@ -1,0 +1,9 @@
+{
+  "name": "Bujji Alerts",
+  "short_name": "Bujji",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "Get live alerts from Bujji",
+  "gcm_sender_id": "482941778795"
+}
