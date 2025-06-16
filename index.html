@@ -1,54 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bujji Alerts</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f5f5f5;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-    #push-messages {
-      margin-top: 20px;
-      padding: 10px;
-      border: 2px dashed #2980b9;
-      background-color: #ecf0f1;
-      min-height: 50px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Bujji Alerts</h1>
-  <p>Push alerts will appear here:</p>
-  <div id="push-messages"></div>
+<html>
+  <head>
+    <title>Bujji Alerts</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- OneSignal SDK -->
-  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-  <script>
-    window.OneSignal = window.OneSignal || [];
-    OneSignal.push(function() {
-      OneSignal.init({
-        appId: "39935939-ea04-466c-99ee-e40ee93c091c",
+    <!-- OneSignal SDK -->
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script>
+      window.OneSignal = window.OneSignal || [];
+      OneSignal.push(function () {
+        OneSignal.init({
+          appId: "39935939-ea04-466c-99ee-e40ee93c091c", // ✅ Your OneSignal App ID
+          notifyButton: {
+            enable: true,
+          },
+        });
       });
+    </script>
+  </head>
 
-      OneSignal.isPushNotificationsEnabled(function(isEnabled) {
-        if (!isEnabled) {
-          OneSignal.showNativePrompt();
-        }
-      });
-
-      OneSignal.on('notificationDisplay', function(event) {
-        const messagesDiv = document.getElementById('push-messages');
-        const newMsg = document.createElement('div');
-        newMsg.textContent = "Notification received: " + event.data.title + " - " + event.data.body;
-        messagesDiv.appendChild(newMsg);
-      });
-    });
-  </script>
-</body>
+  <body>
+    <h1>Welcome to Bujji Alerts 🚨</h1>
+    <p>Click the notification icon in the bottom corner to subscribe!</p>
+  </body>
 </html>
