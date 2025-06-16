@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bujji Alerts</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- OneSignal SDK -->
-    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
-    <script>
-      window.OneSignal = window.OneSignal || [];
-      OneSignal.push(function () {
-        OneSignal.init({
-          appId: "39935939-ea04-466c-99ee-e40ee93c091c", // ✅ Your OneSignal App ID
-          notifyButton: {
-            enable: true,
-          },
-        });
+<head>
+  <title>Bujji Alerts</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- OneSignal SDK -->
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+      OneSignal.init({
+        appId: "39935939-ea04-466c-99ee-e40ee93c091c",
+        notifyButton: {
+          enable: true,
+        },
       });
-    </script>
-  </head>
-
-  <body>
-    <h1>Welcome to Bujji Alerts 🚨</h1>
-    <p>Click the notification icon in the bottom corner to subscribe!</p>
-  </body>
+      // Force showing the permission prompt after init
+      OneSignal.showSlidedownPrompt();
+    });
+  </script>
+</head>
+<body>
+  <h1>Welcome to Bujji Alerts 🚨</h1>
+  <p>Tap the bell icon or wait for the permission prompt to subscribe to notifications.</p>
+</body>
 </html>
