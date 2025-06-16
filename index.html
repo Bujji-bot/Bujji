@@ -4,6 +4,15 @@
   <title>Bujji Alerts</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* Fix for OneSignal notify button positioning */
+    #onesignal-bell-container {
+      position: fixed !important;
+      bottom: 20px !important;
+      right: 20px !important;
+      z-index: 99999 !important;
+    }
+  </style>
   <!-- OneSignal SDK -->
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
   <script>
@@ -15,13 +24,12 @@
           enable: true,
         },
       });
-      // Force showing the permission prompt after init
       OneSignal.showSlidedownPrompt();
     });
   </script>
 </head>
 <body>
   <h1>Welcome to Bujji Alerts 🚨</h1>
-  <p>Tap the bell icon or wait for the permission prompt to subscribe to notifications.</p>
+  <p>Click the bell icon on the bottom right corner to subscribe to notifications.</p>
 </body>
 </html>
